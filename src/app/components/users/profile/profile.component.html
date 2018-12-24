@@ -1,0 +1,20 @@
+<section id="profile" class="container mt-5">
+  <div class="row mt-5">
+    <div class="offset-lg-1 col-lg-10 col-sm-12 col-12 main-section text-center card">
+      <div class="row user-details mt-3">
+        <div class="col-12">
+          <img src="{{user.photoUrl}}" class="rounded-circle img-thumbnail" alt="profile">
+          <h5>{{user.name}}</h5>
+          <p>{{user.email}}</p>
+          <hr>
+        </div>
+      </div>
+      <h5 style="text-align: left">Added books:</h5>
+      <div class="list-group" *ngFor="let book of books">
+        <a routerLink="/book/{{book.id}}" class="list-group-item list-group-item-action" style="text-align: left">
+          {{book.titulo}}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

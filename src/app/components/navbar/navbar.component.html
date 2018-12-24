@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+  <a routerLink="/" class="navbar-brand">{{ app_name }}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="mainNavbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-item" *ngIf="isLogged">
+        <a routerLink="/offers" class="nav-link">Offers</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav nav navbar-right">
+      <li class="nav-item" *ngIf="!isLogged">
+        <a class="nav-link" routerLink="/user/register">Register</a>
+      </li>
+      <li class="nav-item" *ngIf="isLogged">
+        <a class="nav-link" routerLink="/admin/list-books">List Books</a>
+      </li>
+      <li class="nav-item" *ngIf="!isLogged">
+        <a class="nav-link" routerLink="/user/login">Login</a>
+      </li>
+      <li class="nav-item dropdown" *ngIf="isLogged">
+        <a class="nav-link dropdown-toggle user-action" role="button" data-toggle="dropdown">
+          {{this.user.name}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/user/profile">
+            <i class="fas fa-user-circle"></i>
+            Profile
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="user/login" class="dropdown-item" (click)="onLogout()">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </a>
+        </div>
+      </li>
+      <li *ngIf="isLogged">
+        <div class="inset">
+          <img src="{{this.user.photoUrl}}" alt="Avatar">
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

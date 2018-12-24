@@ -1,0 +1,25 @@
+<section id="books" class="mt-5">
+  <div class="container">
+    <div class="mb-2">
+      <div class="col-md-10 mx-auto" *ngFor="let book of books">
+        <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+          <div class="card-body">
+            <h3 class="mb-0">
+              <a class="text-dark" routerLink="/book/{{book.id}}">{{book.titulo}}</a>
+            </h3>
+            <div class="mb-1 text-muted">{{book.idioma}}</div>
+            <p class="card-text mb-auto">{{book.descripcion}}</p>
+            <div class="container-precio-idioma mt-3">
+              <h4>
+                <span class="badge badge-primary">{{book.precio}} $</span>
+              </h4>
+              <h4><span class="badge badge-primary">{{book.idioma}}</span></h4>
+            </div>
+            <a href="{{book.link_amazon}}" class="btn btn-block btn-outline-primary mt-3" target="_blank">Buy</a>
+          </div>
+          <img class="rounded img-fluid w-80 p-3 h-75 d-inline-block" data-src="{{book.portada}}" alt="{{book.titulo}}">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

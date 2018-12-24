@@ -1,0 +1,14 @@
+.inset {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.inset img {
+    border-radius: inherit;
+    width: inherit;
+    height: inherit;
+    display: block;
+    position: relative;
+    z-index: 998;
+}
